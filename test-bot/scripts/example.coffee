@@ -1,8 +1,25 @@
+
+
 module.exports = (robot) ->
 
-   robot.hear /badger/i, (res) ->
-     res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
-  
+   robot.hear /elon/i, (res) ->
+     res.send "I am here mere mortals!"
+
+   robot.hear /tesla/i, (res) ->
+     res.send "I am giving out internship oppurtunities for tesla."
+     
+   robot.hear /tesla/i, (res) ->
+     res.send "I am giving out internship oppurtunities for tesla."
+     
+   robot.hear /breakfast/i, (res) ->
+     res.send 'Breakfast is  at 8:00am'
+     
+   robot.hear /lunch/i, (res) ->
+     res.send 'Lunch is at 12:00pm'
+   
+   robot.hear /dinner/i, (res) ->
+     res.send 'Lunch is at 6:00pm'
+
    robot.respond /open the (.*) doors/i, (res) ->
      doorType = res.match[1]
      if doorType is "pod bay"
@@ -11,8 +28,16 @@ module.exports = (robot) ->
        res.reply "Opening #{doorType} doors"
   
    robot.hear /I like pie/i, (res) ->
-     res.emote "makes a freshly baked pie"
-  
+     res.emote "makes a freshly baked pie with SpaceX money"
+
+   quotes = ['Patience is a virtue, and I\'m learning patience. It\'s a tough lesson.', 'I would like to die on Mars. Just not on impact.', 'I think life on Earth must be about more than just solving problems... It\'s got to be something inspiring, even if it is vicarious.', 'If you\'re trying to create a company, it\'s like baking a cake. You have to have all the ingredients in the right proportion.', 'It\'s OK to have your eggs in one basket as long as you control what happens to that basket.', 'An asteroid or a supervolcano could certainly destroy us, but we also face risks the dinosaurs never saw: An engineered virus, nuclear war, inadvertent creation of a micro black hole, or some as-yet-unknown technology could spell the end of us.']
+
+   robot.hear /quote/i, (res) ->
+     res.send res.random quotes
+
+   robot.hear /help/i, (res) ->
+     res.emote "makes a freshly baked pie with SpaceX money"
+
    lulz = ['lol', 'rofl', 'lmao']
   
    robot.respond /lulz/i, (res) ->
@@ -25,12 +50,7 @@ module.exports = (robot) ->
    enterReplies = ['Hi', 'Target Acquired', 'Firing', 'Hello friend.', 'Gotcha', 'I see you']
    leaveReplies = ['Are you still there?', 'Target lost', 'Searching']
   
-   robot.enter (res) ->
-     res.send res.random enterReplies
-   robot.leave (res) ->
-     res.send res.random leaveReplies
-  
-   answer = process.env.HUBOT_ANSWER_TO_THE_ULTIMATE_QUESTION_OF_LIFE_THE_UNIVERSE_AND_EVERYTHING
+   answer = 'I think the high-tech industry is used to developing new things very quickly. It\'s the Silicon Valley way of doing business: You either move very quickly and you work hard to improve your product technology, or you get destroyed by some other company.'
   
    robot.respond /what is the answer to the ultimate question of life/, (res) ->
      unless answer?
