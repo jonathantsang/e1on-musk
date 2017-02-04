@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ad4e57a-d8be-4990-a4b2-fc41ce3c0523" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test-bot/package.json" afterPath="$PROJECT_DIR$/test-bot/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test-bot/scripts/example.coffee" afterPath="$PROJECT_DIR$/test-bot/scripts/example.coffee" />
     </list>
     <ignored path="e1on-musk.iws" />

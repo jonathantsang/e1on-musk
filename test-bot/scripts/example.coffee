@@ -1,9 +1,4 @@
-
-
 module.exports = (robot) ->
-
-   robot.hear /elon/i, (res) ->
-     res.send "I am here mere mortals!"
 
    robot.hear /tesla/i, (res) ->
      res.send "I am giving out internship oppurtunities for tesla."
@@ -18,7 +13,10 @@ module.exports = (robot) ->
      res.send 'Lunch is at 12:00pm'
    
    robot.hear /dinner/i, (res) ->
-     res.send 'Lunch is at 6:00pm'
+     res.send 'Dinner is at 6:00pm'
+   
+   robot.hear /schedule/i, (res) ->
+     res.send 'Read the schedule here: http://qhacks.io/#schedule_header'
 
    robot.respond /open the (.*) doors/i, (res) ->
      doorType = res.match[1]
@@ -31,12 +29,17 @@ module.exports = (robot) ->
      res.emote "makes a freshly baked pie with SpaceX money"
 
    quotes = ['Patience is a virtue, and I\'m learning patience. It\'s a tough lesson.', 'I would like to die on Mars. Just not on impact.', 'I think life on Earth must be about more than just solving problems... It\'s got to be something inspiring, even if it is vicarious.', 'If you\'re trying to create a company, it\'s like baking a cake. You have to have all the ingredients in the right proportion.', 'It\'s OK to have your eggs in one basket as long as you control what happens to that basket.', 'An asteroid or a supervolcano could certainly destroy us, but we also face risks the dinosaurs never saw: An engineered virus, nuclear war, inadvertent creation of a micro black hole, or some as-yet-unknown technology could spell the end of us.']
+   
+   songs = ['Now listen closely\, Here\'s a little lesson in trickery\, This is going down in history\, If you wanna be a Villain Number One\, You have to chase a superhero on the run\, Just follow my moves\, and sneak around\, Be careful not to make a sound\, (Shh)\, (No\, don\'t touch that!)']
 
    robot.hear /quote/i, (res) ->
      res.send res.random quotes
 
    robot.hear /help/i, (res) ->
      res.emote "makes a freshly baked pie with SpaceX money"
+     
+   robot.hear /song/i, (res) ->
+     res.emote res.random songs
 
    lulz = ['lol', 'rofl', 'lmao']
   
