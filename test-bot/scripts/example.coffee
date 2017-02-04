@@ -14,6 +14,9 @@ module.exports = (robot) ->
    
    robot.hear /dinner/i, (res) ->
      res.send 'Dinner is at 6:00pm'
+     
+   robot.hear /name/i, (res) ->
+     res.send "Hi #{res.message.user.name}"
    
    robot.hear /schedule/i, (res) ->
      res.send 'Read the schedule here: http://qhacks.io/#schedule_header'
