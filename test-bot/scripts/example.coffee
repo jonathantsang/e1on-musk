@@ -17,7 +17,22 @@ module.exports = (robot) ->
      
    robot.hear /name/i, (res) ->
      res.send "Hi #{res.message.user.name}"
+    
+   robot.hear /waterloo/i, (res) ->
+     res.send "I was going to do physics and engineering at Waterloo, but then I visited the campus… and, you may not want to print this… but there didn’t seem to be any girls there!"
    
+   robot.hear /uoft/i, (res) ->
+     res.send "I considered Waterloo and Queens. UofT was never an option. I think if you want to make as much moolah as me, you gotta consider your options wisely."
+     
+   robot.hear /queens/i, (res) ->
+     res.send "Queens is the best university in the world! I chose it for the vibrant communities and amazing programs. MAKE QUEENS GREAT AGAIN!"
+     
+   robot.hear /york/i, (res) ->
+     res.send "York is a nice place."
+   
+   robot.hear /ryerson/i, (res) ->
+     res.send "Ryerson is a nice place."
+     
    robot.hear /schedule/i, (res) ->
      res.send 'Read the schedule here: http://qhacks.io/#schedule_header'
 
@@ -46,7 +61,7 @@ module.exports = (robot) ->
 
    lulz = ['lol', 'rofl', 'lmao']
   
-   robot.respond /lulz/i, (res) ->
+   robot.hear /lulz/i, (res) ->
      res.send res.random lulz
   
    robot.topic (res) ->
@@ -71,15 +86,15 @@ module.exports = (robot) ->
   
    annoyIntervalId = null
   
-   robot.respond /annoy me/, (res) ->
+   robot.respond /concatem/, (res) ->
      if annoyIntervalId
-       res.send "AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH"
+       res.send "Queens is better!"
        return
   
-     res.send "Hey, want to hear the most annoying sound in the world?"
+     res.send "Hmmmmm"
      annoyIntervalId = setInterval () ->
-       res.send "AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH"
-     , 1000
+       res.send "I was going to do physics and engineering at Waterloo, but then I visited the campus… and, you may not want to print this… but there didn’t seem to be any girls there!"
+     , 2
   
    robot.respond /unannoy me/, (res) ->
      if annoyIntervalId
