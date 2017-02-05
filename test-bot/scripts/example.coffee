@@ -1,13 +1,20 @@
 module.exports = (robot) ->
-
-   robot.hear /tesla/i, (res) ->
-     res.send "I am giving out internship oppurtunities for tesla."
      
    robot.hear /tesla/i, (res) ->
      res.send "I am giving out internship oppurtunities for tesla."
      
    robot.hear /breakfast/i, (res) ->
      res.send 'Breakfast is  at 8:00am'
+     
+   robot.hear /dat/, (res) ->
+     if annoyIntervalId
+       res.send "@here comes dat boii"
+       return
+  
+     res.send "@here comes dat boii"
+     annoyIntervalId = setInterval () ->
+       res.send "@here comes dat boii"
+     , 1000
      
    robot.hear /lunch/i, (res) ->
      res.send 'Lunch is at 12:00pm'
