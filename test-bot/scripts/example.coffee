@@ -2,19 +2,12 @@ module.exports = (robot) ->
      
    robot.hear /tesla/i, (res) ->
      res.send "I am giving out internship oppurtunities for tesla."
+   
+   robot.hear /spacex/i, (res) ->
+     res.send "SpaceX is cool. Gonna go to Mars."
      
    robot.hear /breakfast/i, (res) ->
      res.send 'Breakfast is  at 8:00am'
-     
-   robot.hear /dat/, (res) ->
-     if annoyIntervalId
-       res.send "@here comes dat boii"
-       return
-  
-     res.send "@here comes dat boii"
-     annoyIntervalId = setInterval () ->
-       res.send "@here comes dat boii"
-     , 1000
      
    robot.hear /lunch/i, (res) ->
      res.send 'Lunch is at 12:00pm'
@@ -24,6 +17,9 @@ module.exports = (robot) ->
      
    robot.hear /name/i, (res) ->
      res.send "Hi #{res.message.user.name}"
+     
+    robot.hear /team/i, (res) ->
+     res.send "Hi #{res.message.user.name}. Unfortunately I'm too preoccupied to team."
     
    robot.hear /waterloo/i, (res) ->
      res.send "I was going to do physics and engineering at Waterloo, but then I visited the campus… and, you may not want to print this… but there didn’t seem to be any girls there!"
@@ -41,7 +37,7 @@ module.exports = (robot) ->
      res.send "Ryerson is a nice place."
      
    robot.hear /schedule/i, (res) ->
-     res.send 'Read the schedule here: http://qhacks.io/#schedule_header'
+     res.send 'Read the schedule here: http://enghack.uwaterloo.ca'
 
    robot.respond /open the (.*) doors/i, (res) ->
      doorType = res.match[1]
@@ -61,7 +57,7 @@ module.exports = (robot) ->
      res.send res.random quotes
 
    robot.hear /help/i, (res) ->
-     res.emote "makes a freshly baked pie with SpaceX money"
+     res.emote "I am here to help everyone"
      
    robot.hear /song/i, (res) ->
      res.emote res.random songs
